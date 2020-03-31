@@ -1,0 +1,241 @@
+<!-- This project is a template for a patient screening guide to help individuals navigate the types of care options they should be pursuing for COVID-19. 
+    All logic is subject to change based on CDC recommendations and should be reviewed against those guidelines before final implementation. -->
+
+<!doctype html>
+<html lang="en">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css">
+    <link rel="stylesheet" href="css/site.css">
+    <title>COVID-19 Screening Guide</title>
+  </head>
+  <body>
+    <div class="text-center mt-4">
+        <picture>
+            <source srcset="https://via.placeholder.com/65?text=Logo+Dark+Mode" media="(prefers-color-scheme: dark)">
+            <img src="https://via.placeholder.com/65?text=Logo">
+        </picture>
+    </div>
+    <form id="msform" class="container-fluid">
+        <ul id="progressbar" class="row list-unstyled">
+            <!-- li items are used to show progress. One li item is needed for each step/fieldset below -->
+            <li class="active col"></li>
+            <li class="col"></li>
+            <li class="col"></li>
+            <li class="col"></li>
+            <li class="col"></li>
+        </ul> 
+
+        <!-- Step 1 -->
+        <fieldset class="pb-3">
+            <div class="card my-5 bg-light text-center">
+                <div class="card-body">
+                    <h3 class="text-primary">Get Started</h3>
+                    <p>Please use this tool to provide guidance related to COVID-19, commonly known as coronavirus, for individuals 18 years old or greater.</p>
+                    <div class="alert alert-danger mt-2">
+                        If you are experiencing a <b>medical emergency</b>, dial <b>911</b> or proceed to the nearest <a href="#" class="alert-link"><u>emergency department</u></a>.
+                    </div>
+                </div>
+            </div>
+            <input type="button" name="next" class="next btn btn-primary float-right" value="Get Started" />
+        </fieldset>
+
+        <!-- Step 2 -->
+        <fieldset class="pb-3">
+            <h3 class="mt-5 text-center">Are you experiencing any of the following symptoms?</h3>
+            <div class="card mb-2 mt-3 mt-md-5 bg-light">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-lg-9 col-8 text-right">
+                            <p class="lead card-text">Fever of <span class="text-info">100.4 or higher</span>?</p>
+                        </div>
+                        <div class="col-lg-3 col-4 text-left">
+                            <input type="checkbox" id="hasFever" name="hasFever" data-toggle="toggle" data-on="Yes" data-off="No" data-size="lg" data-onstyle="success" data-offstyle="secondary" data-style="ios">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card mb-5 bg-light">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-lg-9 col-8 text-right">
+                            <p class="lead card-text">Have acute <span class="text-info">respiratory symptoms</span>? <small class="d-block text-muted">e.g., cough, difficulty breathing, etc.</small></p>
+                        </div>
+                        <div class="col-lg-3 col-4 text-left">
+                            <input type="checkbox" id="hasRespiratorySymptoms" name="hasRespiratorySymptoms" data-toggle="toggle" data-on="Yes" data-off="No" data-size="lg" data-onstyle="success" data-offstyle="secondary" data-style="ios">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <input type="button" name="previous" class="previous btn btn-secondary float-left" value="Previous" />
+            <input type="button" name="next" class="next btn btn-primary float-right" value="Next" />
+        </fieldset>
+
+        <!-- Step 3 -->
+        <fieldset class="pb-3">
+            <h3 class="mt-5 text-center">In the last 14 days:</h3>
+            <div class="card mt-3 mt-md-5 mb-2 bg-light">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-lg-9 col-8 text-right">
+                            <p class="lead card-text">Have you had a <span class="text-info">close contact</span> with a suspected or confirmed COVID-19 patient?</p>
+                        </div>
+                        <div class="col-lg-3 col-4 text-left">
+                            <input type="checkbox" id="hadContact" name="hadContact" data-toggle="toggle" data-on="Yes" data-off="No" data-size="lg" data-onstyle="success" data-offstyle="secondary" data-style="ios">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-2 bg-light">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-lg-9 col-8 text-right">
+                            <p class="lead card-text">Have you <span class="text-info">traveled</span> from an affected geographic area?</p>
+                        </div>
+                        <div class="col-lg-3 col-4 text-left">
+                            <input type="checkbox" id="travelFromInfectedArea" name="travelFromInfectedArea" data-toggle="toggle" data-on="Yes" data-off="No" data-size="lg" data-onstyle="success" data-offstyle="secondary" data-style="ios">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-5 bg-light">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-lg-9 col-8 text-right">
+                            <p class="lead card-text">Have you been on a <span class="text-info">cruise ship</span>, <span class="text-info">airplane</span>, <span class="text-info">bus</span>, or have you attended a <span class="text-info">group gathering</span>?</p>
+                        </div>
+                        <div class="col-lg-3 col-4 text-left">
+                            <input type="checkbox" id="cruisePlaneBusGroup" name="cruisePlaneBusGroup" data-toggle="toggle" data-on="Yes" data-off="No" data-size="lg" data-onstyle="success" data-offstyle="secondary" data-style="ios">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <input type="button" name="previous" class="previous btn btn-secondary float-left" value="Previous" />
+            <input type="button" name="next" class="next btn btn-primary float-right" value="Next" />
+        </fieldset>
+
+        <!-- Step 4 -->
+        <fieldset class="pb-3">
+            <div class="card mt-5 mb-2 bg-light">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-lg-9 col-8 text-right">
+                            <p class="lead card-text">Are you <span class="text-info">age 60</span> or over?</p>
+                        </div>
+                        <div class="col-lg-3 col-4 text-left">
+                            <input type="checkbox" id="age60OrOver" name="age60OrOver" data-toggle="toggle" data-on="Yes" data-off="No" data-size="lg" data-onstyle="success" data-offstyle="secondary" data-style="ios">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-2 bg-light">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-lg-9 col-8 text-right">
+                            <p class="lead card-text">Do you <span class="text-info">live in a communal setting</span> such as a long term care facility, group home, or shelter?</p>
+                        </div>
+                        <div class="col-lg-3 col-4 text-left">
+                            <input type="checkbox" id="liveInCommunalSetting" name="liveInCommunalSetting" data-toggle="toggle" data-on="Yes" data-off="No" data-size="lg" data-onstyle="success" data-offstyle="secondary" data-style="ios">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-5 bg-light">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-lg-9 col-8 text-right">
+                            <p class="lead card-text">Do you have a <span class="text-info">chronic medical condition</span> or are you considered <span class="text-info">immunocompromised</span>? <small class="d-block text-muted">Examples include, but aren't limited to diabetes, heart disease, chronic kidney disease, chronic lung disease, or taking immunosuppressive medication.</small></p>
+                        </div>
+                        <div class="col-lg-3 col-4 text-left">
+                            <input type="checkbox" id="chronicMedicalCondition" name="chronicMedicalCondition" data-toggle="toggle" data-on="Yes" data-off="No" data-size="lg" data-onstyle="success" data-offstyle="secondary" data-style="ios">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <input type="button" name="previous" class="previous btn btn-secondary float-left" value="Previous" />
+            <button type="button" id="submitBtn" name="submitBtn" class="btn btn-success float-right">Complete</button>
+        </fieldset>
+
+        <!-- Step 5 -->
+        <fieldset id="results" class="pb-3">
+            <!-- NO SCREENING -->
+            <div id="result-NoScreen" class="card result-card my-5 bg-light" style="display: none;">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-sm-3 d-none d-sm-block text-right">
+                            <i class="fas fa-check text-success fa-6x"></i>
+                        </div>
+                        <div class="col-sm-9 col-12 text-left">
+                            <h4>Based on your responses, we do not recommend that you currently seek further evaluation for COVID-19.</h4>
+                            <p>Learn more about COVID-19 by visiting the <a href="https://www.cdc.gov/coronavirus/2019-ncov/if-you-are-sick/steps-when-sick.html" target="_blank" class="badge badge-primary">CDC website</a> and continue to monitor your health closely.</p>
+                            <p class="card-text">Please follow the <a href="https://www.cdc.gov/coronavirus/2019-ncov/if-you-are-sick/steps-when-sick.html" target="_blank" class="badge badge-primary">CDC's guidelines</a> relating to social distancing.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WAIT AND MONITOR -->
+            <div id="result-WaitAndMonitor" class="card result-card my-5 bg-light" style="display: none;">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-sm-3 d-none d-sm-block text-right">
+                            <i class="fas fa-exclamation-triangle text-warning fa-6x"></i>
+                        </div>
+                        <div class="col-sm-9 col-12 text-left">
+                            <h4>Based on your responses, we recommend that you monitor your symptoms and take your temperature twice a day.</h4>
+                            <p>Schedule an eCare visit through <a href="#" class="badge badge-primary">MyNortonChart</a> or call your medical provider if your symptoms worsen or you develop a fever of 100.4 or greater.</p>
+                            <p class="card-text">Please follow the  <a href="https://www.cdc.gov/coronavirus/2019-ncov/if-you-are-sick/steps-when-sick.html" target="_blank" class="badge badge-primary">CDC guidelines</a> relating to social distancing.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- E-CARE LOW -->
+            <div id="result-ECareLow" class="card result-card my-5 bg-light" style="display: none;">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-sm-3 d-none d-sm-block text-right">
+                            <i class="fas fa-exclamation-triangle text-warning fa-6x"></i>
+                        </div>
+                        <div class="col-sm-9 col-12 text-left">
+                            <h4>Based on your responses, if you are feeling mildly ill, but otherwise would not have sought medical care, it's best for you to stay at home.</h4>
+                            <p>If your symptoms worsen or you decide to seek care, schedule an appointment with our Norton eCare provider through <a href="#" class="badge badge-primary">MyNortonChart</a></p>
+                            <small>If eCare is not an option for you, contact your Primary Care Provider or seek care at <a href="#" class="badge badge-primary">Norton Prompt Care</a> or <a href="#" class="badge badge-primary">Immediate Care Center</a> and request mask upon arrival. While waiting for your appointment please follow the <a href="https://www.cdc.gov/coronavirus/2019-ncov/if-you-are-sick/steps-when-sick.html" target="_blank" class="badge badge-primary">CDC's guidelines</a> relating to social distancing</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- E-CARE HIGH -->
+            <div id="result-ECareHigh" class="card result-card my-5 bg-light" style="display: none;">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-sm-3 d-none d-sm-block text-right">
+                            <i class="fas fa-star-of-life text-danger fa-6x"></i>
+                        </div>
+                        <div class="col-sm-9 col-12 text-left">
+                            <h4>Based on your responses, please schedule an appointment.</h4>
+                            <p>Schedule an appointment with our Norton eCare provider through <a href="#" class="badge badge-primary">MyNortonChart</a>.</p>
+                            <p class="card-text"> If an appointment is not available within 24 hours, contact your Primary Care Provider for a same day appointment or seek care at <a href="#" class="badge badge-primary">Norton Prompt Care</a> or <a href="#" class="badge badge-primary">Immediate Care Center</a> and put on a mask upon arrival. While waiting for your appointment please follow the <a href="https://www.cdc.gov/coronavirus/2019-ncov/if-you-are-sick/steps-when-sick.html" target="_blank" class="badge badge-primary">CDC's guidelines</a> relating to social distancing.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <input type="button" name="previous" class="previous btn btn-secondary float-left" value="Previous" />
+            <a id="myNortonChartLoginBtn" href="#" class="btn btn-primary float-right" style="display: none;">Login to MyNortonChart</a>
+        </fieldset>
+    </form>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
+    <script src="js/stepper.js"></script>
+    <script src="js/screening-guide.js"></script>
+  </body>
+</html>
